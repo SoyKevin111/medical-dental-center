@@ -35,7 +35,7 @@ public class NurseUseCase implements INurseUseCase {
    @Override
    @Transactional(readOnly = true)
    public List<Nurse> findAll() {
-      return this.nurseRepositoryMysql.findAll();
+      return (List) this.nurseRepositoryMysql.findAll();
    }
 
    @Override

@@ -6,10 +6,10 @@ import java.util.Optional;
 public interface IPatientUseCase {
    //get, add, delete, update
    Patient save(Patient patient);
+   Optional<Patient> update(CreatePatient createPatient, Long id);
    void delete(Long id);
-   Optional<Patient> update(Patient patient);
    Optional<Patient> findById(Long id);
    List<Patient> findAll();
-   boolean ifExistPatient(String identification);
+   boolean existsByIdentification(String identification);
 
 }

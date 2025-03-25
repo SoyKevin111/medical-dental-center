@@ -1,14 +1,14 @@
 package com.example.project.nurse.infraestructure.persistence;
 
 import com.example.project.nurse.domain.Nurse;
-import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
 @Repository
-public interface NurseRepositoryMySql extends JpaRepository<Nurse, Long> {
+public interface NurseRepositoryMySql extends CrudRepository<Nurse, Long> {
    Optional<Nurse> getNurseById(Long id);
    //save generado automaticamente
    //findAll generado automaticamente
