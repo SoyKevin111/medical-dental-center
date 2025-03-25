@@ -29,7 +29,7 @@ FichaMedica{
 
 EvaluacionPrevia{
   id
-  List<EvaluacionPreviaDetalles> tmsvd .lenght == 3
+  List<EvaluacionPreviaDetalles> tmsvd .lenght == 4
   caso
   Enfermera e
 }
@@ -37,12 +37,13 @@ EvaluacionPrevia{
 EvaluacionPreviaDetalles{
  id
  Sintoma stm
- valor
+ valor:boolean
 }
 
 ConsultaMedica{
  id
  EvaluacionPrevia evlp
+ MedicoEspecialista mdep
  diagnostico
 }
 
@@ -52,6 +53,9 @@ independiente >>>
 Paciente{  INPUT
  id
  nombre
+ apellido
+ edad
+ genero
  cedula
  ...todos los datos de una persona
 }
