@@ -34,7 +34,7 @@ public class Patient {
    @Max(value = 100, message = "Max Limit 100 years")
    int age;
 
-   @Column(unique = true, length = 20)
+   @Column(unique = true, length = 10)
    @NotBlank(message = "identification obligatory")
    String identification;
 
