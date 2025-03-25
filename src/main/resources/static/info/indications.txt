@@ -16,6 +16,7 @@ otro: odontologo general
 Entidades>>>>
 
 CentroMedico{
+id
  nombre
 }
 
