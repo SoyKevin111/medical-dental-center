@@ -1,0 +1,92 @@
+NARRATIVA GESTION DE CONSULTA MEDICA ODONTOLOGICA - SIMPLE
+
+El flujo del sistema consiste:
+
+Un paciente acude a un centro especialista de odontologia para solicitar una consulta.
+Si el paciente no esta registrado, se procede a solicitar sus datos personales y crear una ficha medica.
+Si el paciente esta registrado, una enfermera encargada procede a hace una pequena toma de signos vitales actualizando la ficha medica del paciente donde se especifica el caso para determinar que especialista lo atendera en la consulta.
+Posteriormente se realiza la consulta medica con el especialista asignado, donde el medico genera un diagnostico que se agrega la consulta medica actual y se guarda la consulta medica actual en la ficha medica del paciente.
+
+casos:
+caries : odontolo general
+brackets : ortodoncista
+encias: periodoncista
+otro: odontologo general
+
+Entidades>>>>
+
+CentroMedico{
+ nombre
+}
+
+FichaMedica{
+ id
+ Paciente p
+ ConsultaMedica cm
+ fechaApertura
+}
+
+EvaluacionPrevia{
+  id
+  List<EvaluacionPreviaDetalles> tmsvd .lenght == 3
+  caso
+  Enfermera e
+}
+
+EvaluacionPreviaDetalles{
+ id
+ Sintoma stm
+ valor
+}
+
+ConsultaMedica{
+ id
+ EvaluacionPrevia evlp
+ diagnostico
+}
+
+
+independiente >>>
+
+Paciente{  INPUT
+ id
+ nombre
+ cedula
+ ...todos los datos de una persona
+}
+
+
+Sintoma{
+ id
+ nombre
+ detalle
+
+}
+
+MedicoEspecialista{
+ id
+ nombre
+ especialidad
+ descripcion
+}
+
+Enfermera{
+ id
+ nombre
+}
+
+
+Funcionalidades:
+buscar paciente por id
+obtener todos los pacientes
+crud pacientes
+
+consultar ficha medica por numero de cedula
+obtener todas las fichas medicas
+
+
+crud ficha medica
+
+crud toma de signo vital
+
+crud consulta medica
