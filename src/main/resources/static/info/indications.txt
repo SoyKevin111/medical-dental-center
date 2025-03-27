@@ -70,7 +70,6 @@ MedicoEspecialista{
  id
  nombre
  especialidad
- descripcion
 }
 
 Enfermera{
