@@ -64,8 +64,6 @@ Paciente{  INPUT
 Sintoma{
  id
  nombre
- detalle
-
 }
 
 MedicoEspecialista{

@@ -5,6 +5,8 @@ import com.example.project.nurse.infraestructure.persistence.NurseRepositoryMySq
 import com.example.project.patient.domain.Gender;
 import com.example.project.patient.domain.Patient;
 import com.example.project.patient.infraestructure.persistence.PatientRepositoryMySql;
+import com.example.project.specialistDoctor.domain.SpecialistDoctor;
+import com.example.project.specialistDoctor.infraestructure.persistence.SpecialistDoctorRepositoryMysql;
 import com.example.project.symptom.domain.Symptom;
 import com.example.project.symptom.infraestructure.persistence.SymptomRepositoryMysql;
 import org.springframework.boot.CommandLineRunner;
@@ -22,7 +24,7 @@ public class MedicalDentalCenterApplication {
 	}
 
 	@Bean //Test
-	CommandLineRunner init(PatientRepositoryMySql patientRepository, NurseRepositoryMySql nurseRepository, SymptomRepositoryMysql symptomRepository){
+	CommandLineRunner init(PatientRepositoryMySql patientRepository, NurseRepositoryMySql nurseRepository, SymptomRepositoryMysql symptomRepository, SpecialistDoctorRepositoryMysql specialistDoctorRepository){
 		return args -> {
 			Patient patien1 = Patient.builder()
 				.name("Kevin 1")
@@ -60,10 +62,14 @@ public class MedicalDentalCenterApplication {
 			Symptom symptom3 = Symptom.builder().name("Bracket").build();
 			Symptom symptom4 = Symptom.builder().name("Alergia").build();
 
+			SpecialistDoctor specialistDoctor1 = SpecialistDoctor.builder().name("Kevin Steven").specialty("Odontologo General").build();
+			SpecialistDoctor specialistDoctor2 = SpecialistDoctor.builder().name("Ferran Torres").specialty("Ortodoncista").build();
+			SpecialistDoctor specialistDoctor3 = SpecialistDoctor.builder().name("Julio Encizo").specialty("Periodoncista").build();
+
 			patientRepository.saveAll(List.of(patien1, patient2,patient3));
 			nurseRepository.saveAll(List.of(nurse1,nurse2));
 			symptomRepository.saveAll(List.of(symptom1,symptom2,symptom3,symptom4));
-
+			specialistDoctorRepository.saveAll(List.of(specialistDoctor1,specialistDoctor2,specialistDoctor3));
 		};
 	}
 
