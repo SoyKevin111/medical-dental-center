@@ -6,7 +6,7 @@ import java.util.Optional;
 public interface IPatientUseCase {
    //get, add, delete, update
    Patient save(Patient patient);
-   Optional<Patient> update(CreatePatient createPatient, Long id);
+   Optional<Patient> update(RequestPatient requestPatient, Long id);
    void delete(Long id);
    Optional<Patient> findById(Long id);
    List<Patient> findAll();
