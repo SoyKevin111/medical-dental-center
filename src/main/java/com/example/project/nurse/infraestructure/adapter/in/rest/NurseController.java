@@ -1,4 +1,4 @@
-package com.example.project.nurse.infraestructure.rest;
+package com.example.project.nurse.infraestructure.adapter.in.rest;
 
 import com.example.project.nurse.application.usecase.NurseUseCase;
 import com.example.project.nurse.domain.Nurse;

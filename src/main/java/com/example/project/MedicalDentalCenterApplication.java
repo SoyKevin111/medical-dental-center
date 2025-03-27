@@ -1,7 +1,7 @@
 package com.example.project;
 
 import com.example.project.nurse.domain.Nurse;
-import com.example.project.nurse.infraestructure.persistence.NurseRepositoryMySql;
+import com.example.project.nurse.infraestructure.adapter.out.persistence.mysql.NurseRepositoryMySql;
 import com.example.project.patient.domain.Gender;
 import com.example.project.patient.domain.Patient;
 import com.example.project.patient.infraestructure.persistence.PatientRepositoryMySql;
