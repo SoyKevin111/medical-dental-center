@@ -1,4 +1,4 @@
-package com.example.project.patient.infraestructure.persistence;
+package com.example.project.patient.infraestructure.adapter.out.persistence.mysql;
 
 import com.example.project.patient.domain.Patient;
 import org.springframework.data.repository.CrudRepository;

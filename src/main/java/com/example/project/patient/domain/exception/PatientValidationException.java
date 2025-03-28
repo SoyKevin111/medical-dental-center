@@ -1,7 +1,17 @@
 package com.example.project.patient.domain.exception;
 
+import java.util.List;
+
 public class PatientValidationException extends  RuntimeException{
-   public PatientValidationException(String message) {
-      super(message);
+
+   private List<String> errors;
+
+   public PatientValidationException(List<String> errors) {
+      super("Error de validacion Paciente.");
+      this.errors = errors;
+   }
+
+   public List<String> getErrors(){
+      return errors;
    }
 }

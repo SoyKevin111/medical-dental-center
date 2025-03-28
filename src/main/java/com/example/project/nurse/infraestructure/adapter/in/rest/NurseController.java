@@ -4,6 +4,7 @@ import com.example.project.nurse.application.usecase.NurseUseCase;
 import com.example.project.nurse.domain.Nurse;
 import com.example.project.nurse.domain.NurseDto;
 import com.example.project.nurse.domain.NurseMapper;
+import com.example.project.nurse.domain.validation.NurseValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,17 +22,10 @@ public class NurseController {
    @Autowired
    private NurseMapper nurseMapper;
 
+
    @GetMapping("/{id}")
    public ResponseEntity<?> getNurseById(@PathVariable Long id){
-      Optional<Nurse> oNurse = nurseUseCase.getNurseById(id);
-      if(oNurse.isPresent()){
-         Nurse nurse = oNurse.get();
-         return ResponseEntity.ok(nurseMapper.nurseToNurseDto(nurse));
-      }
-      else{
-         return ResponseEntity.status(HttpStatus.NOT_FOUND)
-            .body(Collections.singletonMap("error","Enfermera con id: "+id+" no encontrada."));
-      }
+      return ResponseEntity.ok(nurseMapper.optionalNurseToNurseDto(this.nurseUseCase.getNurseById(id)));
    }
 
    @PostMapping

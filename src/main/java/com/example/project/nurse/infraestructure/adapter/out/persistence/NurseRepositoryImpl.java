@@ -1,7 +1,8 @@
-package com.example.project.nurse.infraestructure.adapter.out.persistence.mysql;
+package com.example.project.nurse.infraestructure.adapter.out.persistence;
 
 import com.example.project.nurse.domain.Nurse;
 import com.example.project.nurse.domain.port.out.INurseRepository;
+import com.example.project.nurse.infraestructure.adapter.out.persistence.mysql.NurseRepositoryMySql;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -17,6 +18,16 @@ public class NurseRepositoryImpl implements INurseRepository {
    @Override
    public Optional<Nurse> getNurseById(Long id) {
       return nurseRepositoryMySql.findById(id);
+   }
+
+   @Override
+   public Optional<Nurse> findByName(String name) {
+      return this.nurseRepositoryMySql.findByName(name);
+   }
+
+   @Override
+   public Optional<Nurse> findById(Long id) {
+      return this.nurseRepositoryMySql.findById(id);
    }
 
    @Override
