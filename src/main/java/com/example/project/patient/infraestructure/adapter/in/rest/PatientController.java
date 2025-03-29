@@ -3,7 +3,6 @@ package com.example.project.patient.infraestructure.adapter.in.rest;
 import com.example.project.patient.application.usecase.PatientUseCase;
 import com.example.project.patient.domain.RequestPatient;
 import com.example.project.patient.domain.Patient;
-import com.example.project.patient.domain.exception.PatientValidationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

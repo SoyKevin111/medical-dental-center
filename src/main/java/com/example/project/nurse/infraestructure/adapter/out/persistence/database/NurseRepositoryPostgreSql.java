@@ -8,7 +8,6 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-@Profile("postgresql")
 public interface NurseRepositoryPostgreSql {
    @Query(value = "SELECT * FROM nurse ORDER BY RANDOM() LIMIT 1", nativeQuery = true)
    Nurse findRandomNurse();

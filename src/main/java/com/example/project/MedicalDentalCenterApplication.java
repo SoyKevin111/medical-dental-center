@@ -1,10 +1,10 @@
 package com.example.project;
 
-import com.example.project.nurse.domain.Nurse;
 import com.example.project.nurse.infraestructure.adapter.out.persistence.database.NurseRepositoryMySql;
+import com.example.project.nurse.infraestructure.adapter.out.persistence.entity.NurseEntity;
 import com.example.project.patient.domain.Gender;
-import com.example.project.patient.domain.Patient;
 import com.example.project.patient.infraestructure.adapter.out.persistence.database.PatientRepositorySql;
+import com.example.project.patient.infraestructure.adapter.out.persistence.entity.PatientEntity;
 import com.example.project.specialistDoctor.infraestructure.adapter.out.persistence.entity.SpecialistDoctorEntity;
 import com.example.project.specialistDoctor.infraestructure.adapter.out.persistence.database.SpecialistDoctorRepositorySql;
 import com.example.project.diagnostic.domain.model.Symptom;
@@ -26,14 +26,14 @@ public class MedicalDentalCenterApplication {
 	@Bean //Test
 	CommandLineRunner init(PatientRepositorySql patientRepository, NurseRepositoryMySql nurseRepository, SymptomRepositoryMysql symptomRepository, SpecialistDoctorRepositorySql specialistDoctorRepository){
 		return args -> {
-			Patient patien1 = Patient.builder()
+			PatientEntity patien1 = PatientEntity.builder()
 				.name("Kevin 1")
 				.surname("Stevennn")
 				.age(20)
 				.gender(Gender.MALE)
 				.identification("0990204404")
 				.build();
-			Patient patient2 = Patient.builder()
+			PatientEntity patient2 = PatientEntity.builder()
 				.name("Kevin 2")
 				.surname("Stevennn")
 				.age(20)
@@ -41,7 +41,7 @@ public class MedicalDentalCenterApplication {
 				.identification("0990204402")
 				.build();
 
-			Patient patient3 = Patient.builder()
+			PatientEntity patient3 = PatientEntity.builder()
 				.name("Kevin 3")
 				.surname("Stevennn")
 				.age(20)
@@ -49,11 +49,11 @@ public class MedicalDentalCenterApplication {
 				.identification("0990204403")
 				.build();
 
-			Nurse nurse1 = Nurse.builder()
+			NurseEntity nurse1 = NurseEntity.builder()
 				.name("Florinda Guevara")
 				.build();
 
-			Nurse nurse2 = Nurse.builder()
+			NurseEntity nurse2 = NurseEntity.builder()
 				.name("Susana Manzana")
 				.build();
 

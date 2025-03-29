@@ -1,13 +1,26 @@
 package com.example.project.nurse.domain.validation;
 
-import com.example.project.nurse.domain.exception.NurseValidationException;
 import org.springframework.stereotype.Component;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Component
 public class NurseValidator {
-   public void validate(String value){
-      if(value.length() > 5){
-         throw new NurseValidationException("El nombre no debe superar "+5+" caracteres.");
+
+   public List<String> validateNurseData(String name){
+      List<String> errors = new ArrayList<>();
+
+      if( name == null ||  name.isEmpty()){ //excede caracteres
+         errors.add("Nombre ingresado indefinido.");
       }
+      if(name.length() > 30){
+         errors.add("El nombre no debe superar +30 caracteres.");
+      }
+
+      return errors;
+
    }
+
+
 }

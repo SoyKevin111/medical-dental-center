@@ -26,6 +26,6 @@ public class SymptomUseCase implements ISymptomUseCase {
 
    @Override
    public List<Symptom> findAll() {
-      return (List) this.symptomRepository.findAll();
+      return (List<Symptom>) this.symptomRepository.findAll();
    }
 }

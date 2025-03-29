@@ -2,6 +2,7 @@ package com.example.project.patient.domain.validation;
 
 import com.example.project.patient.domain.Gender;
 import com.example.project.patient.domain.Patient;
+import com.example.project.patient.domain.RequestPatient;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -43,18 +44,18 @@ public class PatientValidator {
       return errors;
    }
 
-   public List<String> validateRequestPatientData(int age, String name, String surname) {
+   public List<String> validateRequestPatientData(RequestPatient requestPatient) {
       List<String> errors = new ArrayList<>();
 
-      if (age < 3 || age > 100) {
+      if (requestPatient.age() < 3 || requestPatient.age() > 100) {
          errors.add("Edad menor a 3 o mayor a 100 no esta permitido.");
       }
 
-      if (name.isEmpty()) {
+      if (requestPatient.name() ==null || requestPatient.name().isEmpty()) {
          errors.add("Nombre ingresado esta vacio.");
       }
 
-      if (surname.isEmpty()) {
+      if (requestPatient.surname() ==null ||requestPatient.surname().isEmpty()) {
          errors.add("Apellido ingresado esta vacio.");
       }
 

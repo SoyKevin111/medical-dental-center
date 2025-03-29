@@ -1,11 +1,11 @@
 package com.example.project.patient.application.usecase;
 
 import com.example.project.patient.domain.RequestPatient;
-import com.example.project.patient.domain.exception.PatientValidationException;
 import com.example.project.patient.domain.port.in.IPatientUseCase;
 import com.example.project.patient.domain.Patient;
 import com.example.project.patient.domain.port.out.IPatientRepository;
 import com.example.project.patient.domain.validation.PatientValidator;
+import com.example.project.utils.exception.GeneralValidationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,20 +25,20 @@ public class PatientUseCase implements IPatientUseCase {
    public Patient save(Patient patient) {
       List<String> errors = this.patientValidator.validatePatientData(patient);
       if(!errors.isEmpty()){
-         throw new PatientValidationException(errors);
+         throw new GeneralValidationException("[Error Domain]Patient entered fields.",errors);
       } //validaciones de dominio
 
       if(patientRepository.existsByIdentification(patient.getIdentification())){ //validaciones en la base de datos.
-         throw new PatientValidationException(List.of("Error de creacion, paciente existente."));
+         throw new GeneralValidationException("[Error Database]Patient",List.of("Error de creacion, paciente existente."));
       }
       return this.patientRepository.save(patient);
    }
 
    @Override
    public Optional<Patient> update(RequestPatient requestPatient, Long id) {
-      List<String> errors = this.patientValidator.validateRequestPatientData(requestPatient.age(), requestPatient.name(), requestPatient.surname());
+      List<String> errors = this.patientValidator.validateRequestPatientData(requestPatient);
       if(!errors.isEmpty()){
-         throw new PatientValidationException(errors);
+         throw new GeneralValidationException("[Error Domain]RequestPatient",errors);
       } //validaciones de dominio
 
       Optional<Patient> optionalPatient = this.patientRepository.findById(id);
@@ -57,7 +57,7 @@ public class PatientUseCase implements IPatientUseCase {
    public void delete(Long id) {
       Optional<Patient> optionalPatient = this.patientRepository.findById(id);
       if(optionalPatient.isEmpty()){
-         throw new PatientValidationException(List.of("Error de busqueda, no se encontro el paciente para eliminar."));
+         throw new GeneralValidationException("[Error Database]Patient",List.of("Error de busqueda, no se encontro el paciente para eliminar."));
       }
       this.patientRepository.delete(id); //yes
    }
@@ -66,7 +66,7 @@ public class PatientUseCase implements IPatientUseCase {
    public Optional<Patient> findById(Long id) {
       Optional<Patient> optionalPatient = this.patientRepository.findById(id);
       if(optionalPatient.isEmpty()){
-         throw new PatientValidationException(List.of("Error de busqueda, no se encontro el paciente."));
+         throw new GeneralValidationException("[Error Database]Patient",List.of("Error de busqueda, no se encontro el paciente."));
       }
       return  optionalPatient;
    }

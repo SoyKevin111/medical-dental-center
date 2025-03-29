@@ -22,6 +22,6 @@ public class SymptomRepository implements ISymptomRepository {
 
    @Override
    public List<Symptom> findAll() {
-      return (List) this.symptomRepository.findAll();
+      return (List<Symptom>) this.symptomRepository.findAll();
    }
 }

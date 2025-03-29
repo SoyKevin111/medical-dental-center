@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/medical-center/diagnostic/symptoms")
+@RequestMapping("/medical-center/process/diagnostics")
 public class SymptomController {
 
    @Autowired
