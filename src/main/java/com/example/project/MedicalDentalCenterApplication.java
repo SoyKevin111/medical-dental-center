@@ -1,14 +1,14 @@
 package com.example.project;
 
-import com.example.project.nurse.domain.Nurse;
-import com.example.project.nurse.infraestructure.adapter.out.persistence.mysql.NurseRepositoryMySql;
+import com.example.project.nurse.infraestructure.adapter.out.persistence.database.NurseRepositoryMySql;
+import com.example.project.nurse.infraestructure.adapter.out.persistence.entity.NurseEntity;
 import com.example.project.patient.domain.Gender;
-import com.example.project.patient.domain.Patient;
-import com.example.project.patient.infraestructure.persistence.PatientRepositoryMySql;
-import com.example.project.specialistDoctor.domain.SpecialistDoctor;
-import com.example.project.specialistDoctor.infraestructure.persistence.SpecialistDoctorRepositoryMysql;
-import com.example.project.symptom.domain.Symptom;
-import com.example.project.symptom.infraestructure.persistence.SymptomRepositoryMysql;
+import com.example.project.patient.infraestructure.adapter.out.persistence.database.PatientRepositorySql;
+import com.example.project.patient.infraestructure.adapter.out.persistence.entity.PatientEntity;
+import com.example.project.specialistDoctor.infraestructure.adapter.out.persistence.entity.SpecialistDoctorEntity;
+import com.example.project.specialistDoctor.infraestructure.adapter.out.persistence.database.SpecialistDoctorRepositorySql;
+import com.example.project.diagnostic.domain.model.Symptom;
+import com.example.project.diagnostic.infraestructure.adapter.out.persistence.mysql.SymptomRepositoryMysql;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -24,16 +24,16 @@ public class MedicalDentalCenterApplication {
 	}
 
 	@Bean //Test
-	CommandLineRunner init(PatientRepositoryMySql patientRepository, NurseRepositoryMySql nurseRepository, SymptomRepositoryMysql symptomRepository, SpecialistDoctorRepositoryMysql specialistDoctorRepository){
+	CommandLineRunner init(PatientRepositorySql patientRepository, NurseRepositoryMySql nurseRepository, SymptomRepositoryMysql symptomRepository, SpecialistDoctorRepositorySql specialistDoctorRepository){
 		return args -> {
-			Patient patien1 = Patient.builder()
+			PatientEntity patien1 = PatientEntity.builder()
 				.name("Kevin 1")
 				.surname("Stevennn")
 				.age(20)
 				.gender(Gender.MALE)
 				.identification("0990204404")
 				.build();
-			Patient patient2 = Patient.builder()
+			PatientEntity patient2 = PatientEntity.builder()
 				.name("Kevin 2")
 				.surname("Stevennn")
 				.age(20)
@@ -41,7 +41,7 @@ public class MedicalDentalCenterApplication {
 				.identification("0990204402")
 				.build();
 
-			Patient patient3 = Patient.builder()
+			PatientEntity patient3 = PatientEntity.builder()
 				.name("Kevin 3")
 				.surname("Stevennn")
 				.age(20)
@@ -49,11 +49,11 @@ public class MedicalDentalCenterApplication {
 				.identification("0990204403")
 				.build();
 
-			Nurse nurse1 = Nurse.builder()
+			NurseEntity nurse1 = NurseEntity.builder()
 				.name("Florinda Guevara")
 				.build();
 
-			Nurse nurse2 = Nurse.builder()
+			NurseEntity nurse2 = NurseEntity.builder()
 				.name("Susana Manzana")
 				.build();
 
@@ -62,14 +62,14 @@ public class MedicalDentalCenterApplication {
 			Symptom symptom3 = Symptom.builder().name("Bracket").build();
 			Symptom symptom4 = Symptom.builder().name("Alergia").build();
 
-			SpecialistDoctor specialistDoctor1 = SpecialistDoctor.builder().name("Kevin Steven").specialty("Odontologo General").build();
-			SpecialistDoctor specialistDoctor2 = SpecialistDoctor.builder().name("Ferran Torres").specialty("Ortodoncista").build();
-			SpecialistDoctor specialistDoctor3 = SpecialistDoctor.builder().name("Julio Encizo").specialty("Periodoncista").build();
+			SpecialistDoctorEntity specialistDoctorEntity1 = SpecialistDoctorEntity.builder().name("Kevin Steven").specialty("Odontologo General").build();
+			SpecialistDoctorEntity specialistDoctorEntity2 = SpecialistDoctorEntity.builder().name("Ferran Torres").specialty("Ortodoncista").build();
+			SpecialistDoctorEntity specialistDoctorEntity3 = SpecialistDoctorEntity.builder().name("Julio Encizo").specialty("Periodoncista").build();
 
 			patientRepository.saveAll(List.of(patien1, patient2,patient3));
 			nurseRepository.saveAll(List.of(nurse1,nurse2));
 			symptomRepository.saveAll(List.of(symptom1,symptom2,symptom3,symptom4));
-			specialistDoctorRepository.saveAll(List.of(specialistDoctor1,specialistDoctor2,specialistDoctor3));
+			specialistDoctorRepository.saveAll(List.of(specialistDoctorEntity1, specialistDoctorEntity2, specialistDoctorEntity3));
 		};
 	}
 

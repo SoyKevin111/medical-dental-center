@@ -6,7 +6,8 @@ import java.util.List;
 import java.util.Optional;
 
 public interface INurseRepository {
-   Optional<Nurse> getNurseById(Long id);
+   Optional<Nurse> findById(Long id);
+   boolean existsByName(String name);
    Nurse findRandomNurse();
    Nurse save(Nurse nurse);
    List<Nurse> findAll();

@@ -23,6 +23,7 @@ id
 FichaMedica{
  id
  Paciente p
+ EvaluacionPrevia evlp
  ConsultaMedica cm
  fechaApertura
 }
@@ -34,7 +35,7 @@ EvaluacionPrevia{
   Enfermera e
 }
 
-EvaluacionPreviaDetalles{
+EvaluacionPreviaDetalle{
  id
  Sintoma stm
  valor:boolean
@@ -42,7 +43,6 @@ EvaluacionPreviaDetalles{
 
 ConsultaMedica{
  id
- EvaluacionPrevia evlp
  MedicoEspecialista mdep
  diagnostico
 }
@@ -78,17 +78,42 @@ Enfermera{
 }
 
 
-Funcionalidades:
-buscar paciente por id
-obtener todos los pacientes
-crud pacientes
+Lista de entidades:
+MedicalCenter : si
+Patient: si
+Symptom:si
+Nurse: si
+SpecialistDoctor:
+MedicalRecord: no
+PreliminaryEvaluation: no
+PreliminaryEvaluationDetails: no
 
-consultar ficha medica por numero de cedula
-obtener todas las fichas medicas
+
+Estructura del proyecto:
+src/main/java/
+    com/project/
+        paciente/                 // Módulo de Paciente
+            Patient.java
+        ficha_medica/              // Módulo de Ficha Médica
+            MedicalRecord.java
+            PreliminaryEvaluation.java
+            PreliminaryEvaluationDetails.java
+        consulta_medica/           // Módulo de Consulta Médica
+            MedicalConsultation.java
+        medico_especialista/       // Módulo de Especialistas
+            SpecialistDoctor.java
+        enfermera/                 // Módulo de Enfermería
+            Nurse.java
+        diagnostico/               // Módulo de Diagnóstico
+            Symptom.java
+            DiagnosticoController.java
+            DiagnosticoUseCase.java
+            DiagnosticoRepository.java
 
 
-crud ficha medica
 
-crud toma de signo vital
 
-crud consulta medica
+cambiar de base de datos:
+modificar application.properties
+agregar dependencia de sql
+en infraestructure/adapter/out/persistence/Repository.java solo cambiar la inyeccion de dependencia a cualquiera de database/
