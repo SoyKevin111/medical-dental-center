@@ -21,9 +21,9 @@ agrega la consulta medica actual y se guarda la consulta medica actual en la fic
 
 ---
 
-## 🗂️ **Entidades del Sistema**
+# 🗂️ **Entidades del Sistema**
 
-# 🏨 **Consulta Médica**
+## 🏨 **Consulta Médica**
 
 ### `ConsultaMedica`
 | **Campo**               | **Descripción**        |
@@ -35,7 +35,7 @@ agrega la consulta medica actual y se guarda la consulta medica actual en la fic
 
 ---
 
-# 👤 **Paciente**
+## 👤 **Paciente**
 
 ### `Paciente` (INPUT)
 | **Campo**     | **Descripción**              |
@@ -50,7 +50,7 @@ agrega la consulta medica actual y se guarda la consulta medica actual en la fic
 
 ---
 
-# ⚕️ **Síntoma**
+## ⚕️ **Síntoma**
 
 ### `Sintoma`
 | **Campo**     | **Descripción**        |
@@ -60,7 +60,7 @@ agrega la consulta medica actual y se guarda la consulta medica actual en la fic
 
 ---
 
-# 👨‍⚕️ **Médico Especialista**
+## 👨‍⚕️ **Médico Especialista**
 
 ### `MedicoEspecialista`
 | **Campo**      | **Descripción**         |
@@ -71,7 +71,7 @@ agrega la consulta medica actual y se guarda la consulta medica actual en la fic
 
 ---
 
-# 👩‍⚕️ **Enfermera**
+## 👩‍⚕️ **Enfermera**
 
 ### `Enfermera`
 | **Campo**     | **Descripción**        |
@@ -79,23 +79,6 @@ agrega la consulta medica actual y se guarda la consulta medica actual en la fic
 | `id`          | Identificador único    |
 | `nombre`      | Nombre de la enfermera |
 
-# ⚙️ **Funcionalidades**
-
-## ✅ **Pacientes**
-- 🔍 **Buscar paciente por ID**
-- 📋 **Obtener todos los pacientes**
-- ✏️ **CRUD de pacientes**
-
-## ✅ **Ficha Médica**
-- 🔍 **Consultar ficha médica por id**
-- 📋 **Obtener todas las fichas médicas**
-- ✏️ **CRUD de ficha médica**
-
-## ✅ **Evaluación Previa**
-- ✏️ **CRUD de evaluacion previa**
-
-## ✅ **Consulta Médica**
-- ✏️ **CRUD de consulta médica**
 
 
 
